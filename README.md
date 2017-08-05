@@ -1,2 +1,2 @@
 # NIITDemo
-NIIT培训demo
+NIIT demo
