@@ -1,0 +1,36 @@
+package org.niit.com.Demo01;
+
+import java.util.List;
+
+import org.niit.com.bean.Info;
+import org.niit.com.service.DbService;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * 演示spring mvc
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	AbstractApplicationContext ac = new ClassPathXmlApplicationContext("services.xml");
+    	
+    	DbService ds1 = ac.getBean("ds01",DbService.class);
+    	ds1.showMsg();
+    	
+    	DbService ds2 = ac.getBean("ds02",DbService.class);
+    	ds2.showMsg();
+    	
+    	
+    	DbService ds3 = ac.getBean("ds03",DbService.class);
+    	List<Info> infList = ds3.getInfo(0);
+    	for(Info i:infList){
+    		System.out.println(i.getId()+"  "+i.getName()+"  "+i.getIntro());
+    	}
+    	
+    	
+    	ac.close();
+    }
+}

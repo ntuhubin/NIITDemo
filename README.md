@@ -1,2 +1,0 @@
-# NIITDemo
-NIIT demo
